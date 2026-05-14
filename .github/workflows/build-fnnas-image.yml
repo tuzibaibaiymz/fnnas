@@ -27,10 +27,11 @@ on:
         default: "all"
         type: choice
         options:
-          - amlogic
           - allwinner
+          - amlogic
           - rockchip50
           - rockchip50_100
+          - rockchip100_150
           - a311d
           - a311d-oes
           - alark35-3500
