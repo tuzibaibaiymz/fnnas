@@ -167,16 +167,16 @@ jobs:
           dtbs_install: ${{ inputs.dtbs_install }}
 
       - name: Upload Kernel to Release
-        uses: ncipollo/release-action@main
+        uses: ophub/upload-to-release@main
         if: ${{ env.PACKAGED_STATUS == 'success' && !cancelled() }}
         with:
           tag: kernel_fnnas
           artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
-          allowUpdates: true
-          removeArtifacts: false
-          replacesArtifacts: true
-          makeLatest: false
-          token: ${{ secrets.GITHUB_TOKEN }}
+          allow_updates: true
+          remove_artifacts: false
+          replaces_artifacts: true
+          make_latest: false
+          gh_token: ${{ secrets.GITHUB_TOKEN }}
           body: |
             - FnNAS Dedicated Kernel. Based on official [.debs](https://github.com/ophub/fnnas/releases/tag/fnnas_debs) packages from `fnnas.com`,
               and repackaged into .tar.gz format using the `rekernel` tool.
